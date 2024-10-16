@@ -2,26 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.inter-primary {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  @apply text-white lg:text-6xl md:text-5xl sm:text-4xl text-3xl inter-primary leading-[77px];
+}
+
+h2 {
+  @apply text-white lg:text-4xl md:text-3xl sm:text-2xl text-xl inter-primary leading-[44px];
+}
+
+p {
+  @apply text-white inter-primary leading-7 text-sm;
+}
+
+.p-chip {
+  @apply text-white inter-primary lg:leading-7 md:leading-4  lg:text-xl md:text-base sm:text-sm text-xs ;
+}
+
+.dark-modal {
+  @apply lg:p-20 md:p-10 p-5 w-2/3 h-auto bg-bg-solid bg-opacity-80 border border-border-default rounded-2xl ;
+}
+
+.login-bg {
+  @apply bg-earth bg-cover bg-center ;
+}
+
+.btn-login {
+ @apply bg-btn-default hover:bg-btn-hover border border-btn-hover py-2 px-12 text-white rounded-md;
+}
+
+.txt-secondary {
+  @apply text-txt-secondary;
+}
+
+.footer-btn {
+  @apply txt-secondary rounded-md;
+}
+
+.home-bg {
+  @apply bg-bg-home text-white
+}
+
+.demo-container {
+  border-radius: 25px; /* Optional property */
+  overflow: hidden; /* Optional property only if you want to preserve the border-radius */
+  height: 78vh; /* Set a responsive height */
+  width: 95vw; /* Width will take up almost the full viewport */
+  max-width: full; /* Set a max width for larger screens */
+  margin: 0 auto; /* Center the container horizontally */
+
+  /* Mobile styles */
+  @media (max-width: 640px) {
+    width: 90vw; /* Adjust width for smaller screens */
+    height: 65vh; /* Reduce height for mobile */
+  }
+
+  /* Tablet styles */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 95vw; /* Slightly smaller width for tablets */
+    height: 70vh; /* Adjust height for tablets */
   }
 }
