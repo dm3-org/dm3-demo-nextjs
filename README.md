@@ -34,7 +34,7 @@ Make sure you have **Node.js** and **npm** (or **yarn**) installed.
 3. Install dependencies:
 
    ```bash
-   npm install
+   yarn
 
    ```
 
@@ -57,14 +57,55 @@ Make sure you have **Node.js** and **npm** (or **yarn**) installed.
    NEXT_PUBLIC_SIWE_SECRET_KEY=123466f786uy76r6tytfy676
    NEXT_PUBLIC_INFURA_KEY=<your-infura-api-key>  #used for metamask wallet sdk
    ```
-
-5. Run the development server:
-
+5. Update next.config.mjs file:
    ```bash
-   npm run dev
+   /** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: true,
+    // This is done to support SVG & other images rendering
+    webpack: config => {
+       config.externals.push('pino-pretty', 'lokijs', 'encoding');
+       config.module.rules.push({
+          test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+          use: {
+                loader: 'url-loader',
+                options: {
+                   limit: 100000
+                }
+          }
+       });
+       return config;
+    },
+    env: {
+       REACT_APP_ADDR_ENS_SUBDOMAIN: process.env.NEXT_PUBLIC_ADDR_ENS_SUBDOMAIN,
+       REACT_APP_USER_ENS_SUBDOMAIN: process.env.NEXT_PUBLIC_USER_ENS_SUBDOMAIN,
+       REACT_APP_BACKEND: process.env.NEXT_PUBLIC_BACKEND,
+       REACT_APP_DEFAULT_DELIVERY_SERVICE: process.env.NEXT_PUBLIC_DEFAULT_DELIVERY_SERVICE,
+       REACT_APP_DEFAULT_SERVICE: process.env.NEXT_PUBLIC_DEFAULT_SERVICE,
+       REACT_APP_PROFILE_BASE_URL: process.env.NEXT_PUBLIC_PROFILE_BASE_URL,
+       REACT_APP_RESOLVER_BACKEND: process.env.NEXT_PUBLIC_RESOLVER_BACKEND,
+       REACT_APP_WALLET_CONNECT_PROJECT_ID: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
+       REACT_APP_CHAIN_ID: process.env.NEXT_PUBLIC_CHAIN_ID,
+       REACT_APP_MAINNET_PROVIDER_RPC: process.env.NEXT_PUBLIC_MAINNET_PROVIDER_RPC,
+       REACT_APP_PUBLIC_VAPID_KEY: process.env.NEXT_PUBLIC_PUBLIC_VAPID_KEY,
+       REACT_APP_NONCE: process.env.NEXT_PUBLIC_NONCE,
+       REACT_APP_SIWE_SECRET_KEY: process.env.NEXT_PUBLIC_SIWE_SECRET_KEY,
+    },
+ };
+ 
+ export default nextConfig;
+
    ```
 
-6. Open http://localhost:3000 in your browser to see the application.
+
+6. Run the development server:
+
+   ```bash
+   yarn dev
+   
+   ```
+
+7. Open http://localhost:3000 in your browser to see the application.
 
 ### Tech Stack
 
@@ -78,10 +119,10 @@ Make sure you have **Node.js** and **npm** (or **yarn**) installed.
 
 In the project directory, we can run the following scripts:
 
-- `npm run dev`: Runs the app in development mode on http://localhost:3000.
-- `npm run build`: Builds the app for production in the `.next` folder.
-- `npm start`: Starts the production server.
-- `npm run lint`: Runs ESLint to catch syntax and code quality issues.
+- `yarn dev`: Runs the app in development mode on http://localhost:3000.
+- `yarn build`: Builds the app for production in the `.next` folder.
+- `yarn start`: Starts the production server.
+- `yarn lint`: Runs ESLint to catch syntax and code quality issues.
 
 ### Folder Structure
 
