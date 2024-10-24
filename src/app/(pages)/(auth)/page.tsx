@@ -7,7 +7,7 @@ import { useSDK, useSignMessage } from "@metamask/sdk-react-ui";
 import { SIGN_IN_MESSAGE } from "@/app/utils/constants";
 import Dm3Chat from "@/app/components/Dm3Chat";
 
-const LandingPage = () => {
+export const LandingPage = () => {
   const [signature, setSignature] = useState<string | null>(null);
 
   //sdk and account from metamask sdk to sign the message for login
@@ -61,4 +61,3 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;

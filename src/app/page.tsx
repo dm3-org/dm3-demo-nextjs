@@ -1,6 +1,6 @@
 "use client";
 
-import LoginPage from "./(pages)/(auth)/page";
+import {LandingPage} from "./(pages)/(auth)/page";
 import Head from "next/head";
 import { INTER_GOOGLE_FONT_LINK } from "./utils/constants";
 
@@ -14,8 +14,8 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-        {/* Render LoginPage component initially */}
-      <LoginPage />
+        {/* Render LandingPage component initially */}
+      <LandingPage />
     </>
   );
 }

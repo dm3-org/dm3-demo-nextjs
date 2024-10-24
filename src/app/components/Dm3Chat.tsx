@@ -1,8 +1,14 @@
 "use client";
 
 import React from 'react';
-import Dm3Widget, { IDm3WidgetProps } from './Dm3Widget';
+import { IDm3WidgetProps } from './Dm3Widget';
 import { APP_TITLE, DM3_CHAT_SCREEN_SLOGAN } from '../utils/constants';
+import dynamic from 'next/dynamic';
+
+// Component to be loaded dynamically, once it is ready to render
+const DM3Widget = dynamic(() => import('./Dm3Widget'), {
+  ssr: false // This ensures the component is not SSR'd
+});
 
 // Dm3Chat component which displays the chat interface and integrates the Dm3Widget
 const Dm3Chat = (props: IDm3WidgetProps) => {
@@ -36,7 +42,7 @@ const Dm3Chat = (props: IDm3WidgetProps) => {
       </div>
 
       {/* Embedding the DM3Widget component, passing down the wallet address and signature from props */}
-      <Dm3Widget signature={props.signature} walletAddress={props.walletAddress} />
+      <DM3Widget signature={props.signature} walletAddress={props.walletAddress} />
       
     </div>
   );
