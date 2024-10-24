@@ -335,4 +335,5 @@ This section consists of two steps to configure and integrate the **[DM3 Messeng
 
 - [DM3 Protocol](https://dm3.network/)
 - [DM3 Messenger Widget](https://github.com/dm3-org/dm3/tree/develop/packages/messenger-widget)
+- [DM3 Messenger Widget Gitbook](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc)
 - [Metamask SDK](https://docs.metamask.io/wallet/connect/metamask-sdk/)
