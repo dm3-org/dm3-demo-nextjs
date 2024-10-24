@@ -57,7 +57,9 @@ Make sure you have **Node.js** and **npm** (or **yarn**) installed.
    NEXT_PUBLIC_SIWE_SECRET_KEY=123466f786uy76r6tytfy676
    NEXT_PUBLIC_INFURA_KEY=<your-infura-api-key>  #used for metamask wallet sdk
    ```
+
 5. Update next.config.mjs file:
+
    ```bash
    /** @type {import('next').NextConfig} */
    const nextConfig = {
@@ -92,17 +94,16 @@ Make sure you have **Node.js** and **npm** (or **yarn**) installed.
           REACT_APP_SIWE_SECRET_KEY: process.env.NEXT_PUBLIC_SIWE_SECRET_KEY,
        },
     };
-    
+
     export default nextConfig;
 
    ```
-
 
 6. Run the development server:
 
    ```bash
    yarn dev
-   
+
    ```
 
 7. Open http://localhost:3000 in your browser to see the application.
@@ -199,62 +200,62 @@ This section consists of two steps to configure and integrate the **[DM3 Messeng
   ```
 - **resolverBackendUrl** : This is an url of resolver backend that helps to resolve an ENS Profile. This is a mandatory property and can be setup locally. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally) to setup it locally or you can use default one.
   ```bash
-        Example:
-        resolverBackendUrl: https://staging.dm3.network/resolver-handler
-        resolverBackendUrl: http://dm3-service-host:8181/{sender}/{data}.json
+      Example:
+      resolverBackendUrl: https://staging.dm3.network/resolver-handler
+      resolverBackendUrl: http://dm3-service-host:8181/{sender}/{data}.json
   ```
 - **profileBaseUrl** : This is a base url to resolve the profile. This is a mandatory property and can be setup locally. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally) to setup it locally or you can use default one.
 
   ```bash
-           Example:
-  profileBaseUrl: https://staging.dm3.network/api
-  profileBaseUrl: http://localhost:8001
+      Example:
+      profileBaseUrl: https://staging.dm3.network/api
+      profileBaseUrl: http://localhost:8001
   ```
 
 - **defaultDeliveryService** : This Delivery Service is an RPC endpoint where a client can deliver its message. To know more about delivery service follow [specification.dm3](https://specification.dm3.network/base-protocol/message-transport-protocol-dm3mtp/appendixhttps://specification.dm3.network/base-protocol/message-transport-protocol-dm3mtp/appendix). This is a mandatory property and can be setup locally. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-delivery-service-locally) to setup it locally or you can use default one.
 
   ```bash
-              Example:
-   defaultServiceUrl: https://staging.dm3.network/api
-   defaultServiceUrl: http://localhost:8001
+      Example:
+      defaultServiceUrl: https://staging.dm3.network/api
+      defaultServiceUrl: http://localhost:8001
   ```
 
 - **publicVapidKey** : This public vapid key is used to configure push notifications. This is mandatory property and should not be changed.
 
   ```bash
-                 Example:
-   publicVapidKey: BFCJLre0GeM6S-n4mkMX4SLZWlDR9qc8RsHyctsOPh_QDQkBuvCrMe9Rmq24736F-CJFp-3DkDWhp19X7mOJrEc
+      Example:
+      publicVapidKey: BFCJLre0GeM6S-n4mkMX4SLZWlDR9qc8RsHyctsOPh_QDQkBuvCrMe9Rmq24736F-CJFp-3DkDWhp19X7mOJrEc
   ```
 
 - **nonce** : This is a unique value used as a key in storage for each client. It is a mandatory property.
 
   ```bash
-     Example:
-     nonce: '0x23281'
-     nonce: '0x9123821'
+      Example:
+      nonce: '0x23281'
+      nonce: '0x9123821'
   ```
 
 - **defaultContact**: This is the default ENS name for a contact, which is automatically included in the contact list. When the widget is used, the contact will be added by default, so there’s no need to manually add it. This property is mandatory.
   ```bash
-     Example:
-     defaultContact: 'help.dm3.eth'
-     defaultContact:'0x907F65bbE437Be437e634a7643CC32D360E8A92C.dm3.eth'
+      Example:
+      defaultContact: 'help.dm3.eth'
+      defaultContact:'0x907F65bbE437Be437e634a7643CC32D360E8A92C.dm3.eth'
   ```
 - **hideFunction**: This is an optional property and doesn't need to be set. By default, it is undefined. Users can configure which functionalities should be hidden in the widget using this property. Multiple values can be specified, separated by commas.
   ```bash
-    Example:
-    hideFunction: 'attachments'
-    hideFunction: 'edit'
-    hideFunction: 'delete'
-    hideFunction: 'edit,delete'
-    hideFunction: 'attachments,edit,delete'
-    hideFunction: undefined
+      Example:
+      hideFunction: 'attachments'
+      hideFunction: 'edit'
+      hideFunction: 'delete'
+      hideFunction: 'edit,delete'
+      hideFunction: 'attachments,edit,delete'
+      hideFunction: undefined
   ```
 - **showContacts**:This is a required property of boolean type. Setting the value to true allows the widget to display the entire contact list, and multiple contacts can be added dynamically. If set to false, only the default contact will be active, and chatting will be limited to that contact.
   ```bash
-     Example:
-     showContacts: true
-     showContacts: false
+      Example:
+      showContacts: true
+      showContacts: false
   ```
 - **signInImage**:This is an optional property of type string. A base64 string URL or a web URL of an image can be set. This image will be displayed on the sign-in screen of the widget.
   ```bash
@@ -273,102 +274,102 @@ This section consists of two steps to configure and integrate the **[DM3 Messeng
   **Important**: The embedding app is responsible for security, recovery, and management.
 
   ```bash
-     Example:
-     siwe: undefined
-     siwe: {
-        address: "0xe7861D923e1B055bB25CD49569d20903c44692c5",
-        message: "my msg",
-        signature: '0xc9c8df80009a302559642d67adeea12d6e3f2ecbd7702986596b4012a5f5956e70c2a2c658f7c02e9255499049ea518fdf714cadc121b0319aee80f7ae28b0181b',
-        secret: "my-super-secret0"
-     }
+      Example:
+      siwe: undefined
+      siwe: {
+         address: "0xe7861D923e1B055bB25CD49569d20903c44692c5",
+         message: "my msg",
+         signature: '0xc9c8df80009a302559642d67adeea12d6e3f2ecbd7702986596b4012a5f5956e70c2a2c658f7c02e9255499049ea518fdf714cadc121b0319aee80f7ae28b0181b',
+         secret: "my-super-secret0"
+      }
   ```
 
 - **disableDialogOptions**: This is a optional property of type DisableDialogType. To disable all the properties of dialog set it true. By default all properties are active. All the properties of each category is optional.
   ```bash
-     Example:
-     disableDialogOptions: true
-     disableDialogOptions: false
-     disableDialogOptions: undefined
-     disableDialogOptions: {
-        network: true,
-        notification: {
-           email: true,
-           push: false,
-        },
-        profile: {
-           dm3: {
-              cloud: false,
-              optimism: true,
-           },
-           self: {
-              gnosis: true,
-              ens: false,
-           }
-        },
-        settings: {
-           messageView: true,
-        }
-     }
-     disableDialogOptions: {
-        notification: {
-           email: true,
-           push: false,
-        },
-     }
+      Example:
+      disableDialogOptions: true
+      disableDialogOptions: false
+      disableDialogOptions: undefined
+      disableDialogOptions: {
+         network: true,
+         notification: {
+            email: true,
+            push: false,
+         },
+         profile: {
+            dm3: {
+               cloud: false,
+               optimism: true,
+            },
+            self: {
+               gnosis: true,
+               ens: false,
+            }
+         },
+         settings: {
+            messageView: true,
+         }
+      }
+      disableDialogOptions: {
+         notification: {
+            email: true,
+            push: false,
+         },
+      }
   ```
 - **theme**:This is a optional property of type object. Its used to customize the styling, look & feel of the widget. Colors can be set for different components.
   ```bash
-     Example:
-     theme: undefined
-     theme: {
-        backgroundColor: '#eeeeee',
-        buttonBorderColor: '#dddddd',
-        configBoxBorderColor: 'red',
-        buttonColor: 'darkgray',
-        hoverButtonColor: 'chocolate',
-        inactiveButtonColor: 'sieena',
-        primaryTextColor: 'black',
-        secondaryTextColor: 'white',
-        activeContactBackgroundColor: 'dimgray',
-        configurationBoxBackgroundColor: 'darkgrey',
-        configurationBoxBorderColor: '#666876',
-        chatBackgroundColor: '#5c5e54',
-        disabledButtonTextColor: 'burlywood',
-        errorTextColor: '#C30F1A',
-        errorBackgroundColor: '#830B12',
-        attachmentBackgroundColor: '#202129',
-        selectedContactBorderColor: 'orange',
-        profileConfigurationTextColor: 'pink',
-        receivedMessageBackgroundColor: 'pink',
-        receivedMessageTextColor: 'white',
-        sentMessageBackgroundColor: 'blue',
-        sentMessageTextColor: 'white',
-        infoBoxBackgroundColor: 'green',
-        infoBoxTextColor: 'yellow',
-        buttonShadow: '#000000',
-        msgCounterBackgroundColor: 'yellow',
-        msgCounterTextColor: 'white',
-        scrollbarBackgroundColor: 'black',
-        scrollbarScrollerColor: 'white',
-        inputFieldBackgroundColor: 'saddlebrown',
-        inputFieldTextColor: '#FFFF',
-        inputFieldBorderColor: '#81828D',
-        emojiModalBackgroundColor: '262, 240, 283', # It must be in RGB format EX: 240,248,255
-        emojiModalTextColor: '102, 51, 153', # It must be in RGB format EX: 240,248,255
-        emojiModalAccentColor: '255, 105, 180', # It must be in RGB format EX: 240,248,255
-        rainbowConnectBtnBackgroundColor: 'blue',
-        rainbowConnectBtnTextColor: 'white',
-        rainbowAccentColor: 'orange',
-        rainbowAccentForegroundColor: 'pink',
-        rainbowModalTextColor: 'white',
-        rainbowModalTextSecondaryColor: 'yellow',
-        rainbowModalWalletHoverColor: 'green',
-        rainbowModalBackgroundColor: 'blue',
-        alternateContactBackgroundColor: 'black',
-        menuBackgroundColor: 'blue',
-        preferencesHighlightedColor: '#8b7ff4',
-        configureProfileModalBackgroundColor: '#D9D9D9',
-     }
+      Example:
+      theme: undefined
+      theme: {
+         backgroundColor: '#eeeeee',
+         buttonBorderColor: '#dddddd',
+         configBoxBorderColor: 'red',
+         buttonColor: 'darkgray',
+         hoverButtonColor: 'chocolate',
+         inactiveButtonColor: 'sieena',
+         primaryTextColor: 'black',
+         secondaryTextColor: 'white',
+         activeContactBackgroundColor: 'dimgray',
+         configurationBoxBackgroundColor: 'darkgrey',
+         configurationBoxBorderColor: '#666876',
+         chatBackgroundColor: '#5c5e54',
+         disabledButtonTextColor: 'burlywood',
+         errorTextColor: '#C30F1A',
+         errorBackgroundColor: '#830B12',
+         attachmentBackgroundColor: '#202129',
+         selectedContactBorderColor: 'orange',
+         profileConfigurationTextColor: 'pink',
+         receivedMessageBackgroundColor: 'pink',
+         receivedMessageTextColor: 'white',
+         sentMessageBackgroundColor: 'blue',
+         sentMessageTextColor: 'white',
+         infoBoxBackgroundColor: 'green',
+         infoBoxTextColor: 'yellow',
+         buttonShadow: '#000000',
+         msgCounterBackgroundColor: 'yellow',
+         msgCounterTextColor: 'white',
+         scrollbarBackgroundColor: 'black',
+         scrollbarScrollerColor: 'white',
+         inputFieldBackgroundColor: 'saddlebrown',
+         inputFieldTextColor: '#FFFF',
+         inputFieldBorderColor: '#81828D',
+         emojiModalBackgroundColor: '262, 240, 283', # It must be in RGB format EX: 240,248,255
+         emojiModalTextColor: '102, 51, 153', # It must be in RGB format EX: 240,248,255
+         emojiModalAccentColor: '255, 105, 180', # It must be in RGB format EX: 240,248,255
+         rainbowConnectBtnBackgroundColor: 'blue',
+         rainbowConnectBtnTextColor: 'white',
+         rainbowAccentColor: 'orange',
+         rainbowAccentForegroundColor: 'pink',
+         rainbowModalTextColor: 'white',
+         rainbowModalTextSecondaryColor: 'yellow',
+         rainbowModalWalletHoverColor: 'green',
+         rainbowModalBackgroundColor: 'blue',
+         alternateContactBackgroundColor: 'black',
+         menuBackgroundColor: 'blue',
+         preferencesHighlightedColor: '#8b7ff4',
+         configureProfileModalBackgroundColor: '#D9D9D9',
+      }
   ```
   **Note**: Rest all other properties are mandatory and not customizable. They must have the value as shown in the .env configuration.
 
