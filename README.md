@@ -144,25 +144,25 @@ This section consists of two steps to configure and integrate the **[DM3 Messeng
 
 **Understanding DM3 Widget Props and Customization Options**
 
-- **userEnsSubdomain** : This is user's ENS subdomain, which will be used in dm3 name extension. This property is mandatory. Please follow this (document)[https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally] to setup it locally or you can use default one.
+- **userEnsSubdomain** : This is user's ENS subdomain, which will be used in dm3 name extension. This property is mandatory. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally) to setup it locally or you can use default one.
 
   ```bash
       Example:
       userEnsSubdomain: .beta-addr.dm3.eth
   ```
 
-- **addressEnsSubdomain** : This is address ENS subdomain, which will be used as dm3Configuration. This property is mandatory. Please follow this (document)[https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally] to setup it locally or you can use default one.
+- **addressEnsSubdomain** : This is address ENS subdomain, which will be used as dm3Configuration. This property is mandatory. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally) to setup it locally or you can use default one.
   ```bash
       Example:
       addressEnsSubdomain: .beta-addr.dm3.eth
   ```
-- **resolverBackendUrl** : This is an url of resolver backend that helps to resolve an ENS Profile. This is a mandatory property and can be setup locally. Please follow this (document)[https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally] to setup it locally or you can use default one.
+- **resolverBackendUrl** : This is an url of resolver backend that helps to resolve an ENS Profile. This is a mandatory property and can be setup locally. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally) to setup it locally or you can use default one.
   ```bash
         Example:
         resolverBackendUrl: https://staging.dm3.network/resolver-handler
         resolverBackendUrl: http://dm3-service-host:8181/{sender}/{data}.json
   ```
-- **profileBaseUrl** : This is a base url to resolve the profile. This is a mandatory property and can be setup locally. Please follow this (document)[https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally] to setup it locally or you can use default one.
+- **profileBaseUrl** : This is a base url to resolve the profile. This is a mandatory property and can be setup locally. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-resolver-locally) to setup it locally or you can use default one.
 
   ```bash
            Example:
@@ -170,7 +170,7 @@ This section consists of two steps to configure and integrate the **[DM3 Messeng
   profileBaseUrl: http://localhost:8001
   ```
 
-- **defaultDeliveryService** : This Delivery Service is an RPC endpoint where a client can deliver its message. To know more about delivery service follow (specification.dm3)[https://specification.dm3.network/base-protocol/message-transport-protocol-dm3mtp/appendixhttps://specification.dm3.network/base-protocol/message-transport-protocol-dm3mtp/appendix]. This is a mandatory property and can be setup locally. Please follow this (document)[https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-delivery-service-locally] to setup it locally or you can use default one.
+- **defaultDeliveryService** : This Delivery Service is an RPC endpoint where a client can deliver its message. To know more about delivery service follow [specification.dm3](https://specification.dm3.network/base-protocol/message-transport-protocol-dm3mtp/appendixhttps://specification.dm3.network/base-protocol/message-transport-protocol-dm3mtp/appendix). This is a mandatory property and can be setup locally. Please follow this [document](https://dm3.gitbook.io/dm3-developer-guide/~/changes/GbkMWyMjCaJv6EOrWtGc/setting-up-the-dm3-delivery-service-locally) to setup it locally or you can use default one.
 
   ```bash
               Example:
